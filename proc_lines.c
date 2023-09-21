@@ -82,6 +82,10 @@ void process_line(char *line, unsigned int line_number,
 	{
 		my_div(stack, line_number);
 		return;
+	} else if (strcmp(opcode, "mul") == 0)
+	{
+		multi(stack, line_number);
+		return;
 	}
 	process_opcode(opcode, line_number, instructions, stack);
 }

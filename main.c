@@ -43,6 +43,8 @@ instruction_t *initialize_instructions(void)
 	instructions[7].f = sub;
 	instructions[8].opcode = "div";
 	instructions[8].f = my_div;
+	instructions[9].opcode = "mul";
+	instructions[9].f = multi;
 	return (instructions);
 }
 
