@@ -47,3 +47,31 @@
 	3
 	julien@ubuntu:~/monty$ 
 	```
+
+2. pop
+	- Implement the `pop` opcode.
+	- ___The pop opcode___
+	- The opcode `pop` removes the top element of the stack.
+		- Usage: `pop`
+		- If the stack is empty, print the error message `L<line_number>: can't pop an empty stack`, followed by a new line, and exit with the status `EXIT_FAILURE`
+	```
+	julien@ubuntu:~/monty$ cat bytecodes/07.m 
+	push 1
+	push 2
+	push 3
+	pall
+	pop
+	pall
+	pop
+	pall
+	pop
+	pall
+	julien@ubuntu:~/monty$ ./monty bytecodes/07.m 
+	3
+	2
+	1
+	2
+	1
+	1
+	julien@ubuntu:~/monty$ 
+	```
