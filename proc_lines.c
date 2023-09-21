@@ -38,6 +38,10 @@ void process_line(char *line, unsigned int line_number,
 	{
 		pop(stack, line_number);
 		return;
+	} else if (strcmp(opcode, "swap") == 0)
+	{
+		swap(stack, line_number);
+		return;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);

@@ -33,6 +33,8 @@ instruction_t *initialize_instructions(void)
 	instructions[2].f = pint;
 	instructions[3].opcode = "pop";
 	instructions[3].f = pop;
+	instructions[4].opcode = "swap";
+	instructions[4].f = swap;
 	return (instructions);
 }
 

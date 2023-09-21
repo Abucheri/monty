@@ -75,3 +75,27 @@
 	1
 	julien@ubuntu:~/monty$ 
 	```
+
+3. swap
+	- Implement the `swap` opcode.
+	- ___The swap opcode___
+	- The opcode `swap` swaps the top two elements of the stack.
+		- Usage: `swap`
+		- If the stack contains less than two elements, print the error message `L<line_number>: can't swap, stack too short`, followed by a new line, and exit with the status `EXIT_FAILURE`
+	```
+	julien@ubuntu:~/monty$ cat bytecodes/09.m 
+	push 1
+	push 2
+	push 3
+	pall
+	swap
+	pall
+	julien@ubuntu:~/monty$ ./monty bytecodes/09.m 
+	3
+	2
+	1
+	2
+	3
+	1
+	julien@ubuntu:~/monty$ 
+	```
