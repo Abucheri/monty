@@ -29,6 +29,8 @@ instruction_t *initialize_instructions(void)
 	instructions[0].f = push;
 	instructions[1].opcode = "pall";
 	instructions[1].f = pall;
+	instructions[2].opcode = "pint";
+	instructions[2].f = pint;
 	return (instructions);
 }
 

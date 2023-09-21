@@ -3,7 +3,7 @@
 
 #include <stddef.h>
 
-#define NUM_OPCODES 2
+#define NUM_OPCODES 3
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -47,5 +47,6 @@ void process_line(char *line, unsigned int line_number,
 		instruction_t *instructions, stack_t **stack);
 void free_stack(void);
 int is_integer(const char *str);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif
