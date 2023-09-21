@@ -41,6 +41,8 @@ instruction_t *initialize_instructions(void)
 	instructions[6].f = nop;
 	instructions[7].opcode = "sub";
 	instructions[7].f = sub;
+	instructions[8].opcode = "div";
+	instructions[8].f = my_div;
 	return (instructions);
 }
 

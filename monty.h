@@ -3,7 +3,7 @@
 
 #include <stddef.h>
 
-#define NUM_OPCODES 8
+#define NUM_OPCODES 9
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -53,5 +53,6 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void my_div(stack_t **stack, unsigned int line_number);
 
 #endif
