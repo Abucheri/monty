@@ -42,6 +42,10 @@ void process_line(char *line, unsigned int line_number,
 	{
 		swap(stack, line_number);
 		return;
+	} else if (strcmp(opcode, "add") == 0)
+	{
+		add(stack, line_number);
+		return;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
