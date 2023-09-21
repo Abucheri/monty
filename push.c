@@ -17,7 +17,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *data = NULL;
 	stack_t *new_node;
 
-	data = strtok(NULL, " \n\t\r");
+	data = strtok(NULL, " \t\n\r$");
 	if (!data || !is_integer(data))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);

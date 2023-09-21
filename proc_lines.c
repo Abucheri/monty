@@ -22,8 +22,8 @@ void process_line(char *line, unsigned int line_number,
 	instruction_t instruction;
 	int i;
 
-	opcode = strtok(line, " \n\t\r");
-	if (opcode == NULL)
+	opcode = strtok(line, " \t\n\r$");
+	if (opcode == NULL || *opcode == '#')
 		return;
 	for (i = 0; i < NUM_OPCODES; i++)
 	{
@@ -35,4 +35,5 @@ void process_line(char *line, unsigned int line_number,
 		}
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+	exit(EXIT_FAILURE);
 }

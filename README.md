@@ -26,3 +26,24 @@
 	1
 	julien@ubuntu:~/monty$
 	```
+
+1. pint
+	- Implement the `pint` opcode.
+	- ___The pint opcode___
+	- The opcode `pint` prints the value at the top of the stack, followed by a new line.	
+		- Usage: `pint`
+		- If the stack is empty, print the error message `L<line_number>: can't pint, stack empty`, followed by a new line, and exit with the status `EXIT_FAILURE`
+	```
+	julien@ubuntu:~/monty$ cat bytecodes/06.m 
+	push 1
+	pint
+	push 2
+	pint
+	push 3
+	pint
+	julien@ubuntu:~/monty$ ./monty bytecodes/06.m 
+	1
+	2
+	3
+	julien@ubuntu:~/monty$ 
+	```
