@@ -39,6 +39,8 @@ instruction_t *initialize_instructions(void)
 	instructions[5].f = add;
 	instructions[6].opcode = "nop";
 	instructions[6].f = nop;
+	instructions[7].opcode = "sub";
+	instructions[7].f = sub;
 	return (instructions);
 }
 

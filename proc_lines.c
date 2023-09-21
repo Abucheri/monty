@@ -50,6 +50,10 @@ void process_line(char *line, unsigned int line_number,
 	{
 		nop(stack, line_number);
 		return;
+	} else if (strcmp(opcode, "sub") == 0)
+	{
+		sub(stack, line_number);
+		return;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
