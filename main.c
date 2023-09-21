@@ -37,11 +37,15 @@ instruction_t *initialize_instructions(void)
 	instructions[4].f = swap;
 	instructions[5].opcode = "add";
 	instructions[5].f = add;
+	instructions[6].opcode = "nop";
+	instructions[6].f = nop;
 	return (instructions);
 }
 
 /**
  * free_instructions - frees memory from instructions array
+ *
+ * @instructions: mem to be freed
  *
  * Return: Notning
  */

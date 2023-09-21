@@ -126,3 +126,9 @@
 	1
 	julien@ubuntu:~/monty$
 	```
+
+5. nop
+	- Implement the `nop` opcode.
+	- ___The nop opcode___
+	- The opcode `nop` doesn’t do anything.
+		- Usage: `nop`

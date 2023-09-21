@@ -46,6 +46,10 @@ void process_line(char *line, unsigned int line_number,
 	{
 		add(stack, line_number);
 		return;
+	} else if (strcmp(opcode, "nop") == 0)
+	{
+		nop(stack, line_number);
+		return;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
