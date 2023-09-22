@@ -90,6 +90,10 @@ void process_line(char *line, unsigned int line_number,
 	{
 		mod(stack, line_number);
 		return;
+	} else if (strcmp(opcode, "pchar") == 0)
+	{
+		pchar(stack, line_number);
+		return;
 	}
 	process_opcode(opcode, line_number, instructions, stack);
 }

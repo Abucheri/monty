@@ -47,6 +47,8 @@ instruction_t *initialize_instructions(void)
 	instructions[9].f = multi;
 	instructions[10].opcode = "mod";
 	instructions[10].f = mod;
+	instructions[11].opcode = "pchar";
+	instructions[11].f = pchar;
 	return (instructions);
 }
 

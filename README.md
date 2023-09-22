@@ -188,3 +188,20 @@
 			- The top element of the stack contains the result
 			- The stack is one element shorter
 		- If the top element of the stack is `0`, print the error message `L<line_number>: division by zero`, followed by a new line, and exit with the status `EXIT_FAILURE`
+
+11. pchar
+	- Implement the `pchar` opcode.
+	- ___The pchar opcode___
+	- The opcode `pchar` prints the char at the top of the stack, followed by a new line.
+		- Usage: `pchar`
+		- The integer stored at the top of the stack is treated as the ascii value of the character to be printed
+		- If the value is not in the ascii table (man ascii) print the error message `L<line_number>: can't pchar, value out of range`, followed by a new line, and exit with the status `EXIT_FAILURE`
+		- If the stack is empty, print the error message `L<line_number>: can't pchar, stack empty`, followed by a new line, and exit with the status `EXIT_FAILURE`
+	```
+	julien@ubuntu:~/monty$ cat bytecodes/28.m 
+	push 72
+	pchar
+	julien@ubuntu:~/monty$ ./monty bytecodes/28.m 
+	H
+	julien@ubuntu:~/monty$
+	```
