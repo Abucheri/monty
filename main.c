@@ -45,6 +45,8 @@ instruction_t *initialize_instructions(void)
 	instructions[8].f = my_div;
 	instructions[9].opcode = "mul";
 	instructions[9].f = multi;
+	instructions[10].opcode = "mod";
+	instructions[10].f = mod;
 	return (instructions);
 }
 

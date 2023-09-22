@@ -86,6 +86,10 @@ void process_line(char *line, unsigned int line_number,
 	{
 		multi(stack, line_number);
 		return;
+	} else if (strcmp(opcode, "mod") == 0)
+	{
+		mod(stack, line_number);
+		return;
 	}
 	process_opcode(opcode, line_number, instructions, stack);
 }
