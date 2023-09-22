@@ -9,6 +9,19 @@ static void process_opcode(char *opcode, unsigned int line_number,
 void process_line(char *line, unsigned int line_number,
 		instruction_t *instructions, stack_t **stack);
 
+opcode_mapping_t opcode_mappings[] = {
+	{"pop", pop},
+	{"swap", swap},
+	{"add", add},
+	{"nop", nop},
+	{"sub", sub},
+	{"div", my_div},
+	{"mul", multi},
+	{"mod", mod},
+	{"pchar", pchar},
+	{NULL, NULL}
+};
+
 /**
  * process_opcode - process an opcode and execute the operation
  *
@@ -54,46 +67,19 @@ void process_line(char *line, unsigned int line_number,
 		instruction_t *instructions, stack_t **stack)
 {
 	char *opcode;
+	int i;
 
 	opcode = strtok(line, " \t\n\r$");
 	if (opcode == NULL || *opcode == '#')
 		return;
-	if (strcmp(opcode, "pop") == 0)
+	for (i = 0; opcode_mappings[i].opcode != NULL; i++)
 	{
-		pop(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "swap") == 0)
-	{
-		swap(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "add") == 0)
-	{
-		add(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "nop") == 0)
-	{
-		nop(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "sub") == 0)
-	{
-		sub(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "div") == 0)
-	{
-		my_div(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "mul") == 0)
-	{
-		multi(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "mod") == 0)
-	{
-		mod(stack, line_number);
-		return;
-	} else if (strcmp(opcode, "pchar") == 0)
-	{
-		pchar(stack, line_number);
-		return;
+		if (strcmp(opcode, opcode_mappings[i].opcode) == 0)
+		{
+			opcode_mappings[i].func(stack, line_number);
+			return;
+		}
 	}
+
 	process_opcode(opcode, line_number, instructions, stack);
 }

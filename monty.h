@@ -37,6 +37,21 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct opcode_mapping_s - maps opcodes to their associated functions
+ *
+ * @opcode: the opcode
+ * @func: function to handle the opcode
+ *
+ * Description: opcode and its associated function
+ */
+
+typedef struct opcode_mapping_s
+{
+	char *opcode;
+	void (*func)(stack_t **stack, unsigned int line_number);
+} opcode_mapping_t;
+
 /* global */
 extern stack_t *stack;
 
