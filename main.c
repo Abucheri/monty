@@ -53,6 +53,8 @@ instruction_t *initialize_instructions(void)
 	instructions[12].f = pstr;
 	instructions[13].opcode = "rotl";
 	instructions[13].f = rotl;
+	instructions[14].opcode = "rotr";
+	instructions[13].f = rotr;
 	return (instructions);
 }
 

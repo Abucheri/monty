@@ -21,6 +21,7 @@ opcode_mapping_t opcode_mappings[] = {
 	{"pchar", pchar},
 	{"pstr", pstr},
 	{"rotl", rotl},
+	{"rotr", rotr},
 	{NULL, NULL}
 };
 

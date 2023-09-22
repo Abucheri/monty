@@ -283,3 +283,11 @@
 	0
 	julien@ubuntu:~/monty$ 
 	```
+
+14. rotr
+	- Implement the `rotr` opcode.
+	- ___The rotr opcode___
+	- The opcode `rotr` rotates the stack to the bottom.
+		- Usage: `rotr`
+		- The last element of the stack becomes the top element of the stack
+		- `rotr` never fails
