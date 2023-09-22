@@ -237,3 +237,49 @@
 	School
 	julien@ubuntu:~/monty$ 
 	```
+
+13. rotl
+	- Implement the `rotl` opcode.
+	- ___The rotl opcode___
+	- The opcode `rotl` rotates the stack to the top.
+		- Usage: `rotl`
+		- The top element of the stack becomes the last one, and the second top element of the stack becomes the first one
+		- `rotl` never fails
+	```
+	julien@ubuntu:~/monty$ cat bytecodes/35.m 
+	push 1
+	push 2
+	push 3
+	push 4
+	push 5
+	push 6
+	push 7
+	push 8
+	push 9
+	push 0
+	pall
+	rotl
+	pall
+	julien@ubuntu:~/monty$ ./monty bytecodes/35.m 
+	0
+	9
+	8
+	7
+	6
+	5
+	4
+	3
+	2
+	1
+	9
+	8
+	7
+	6
+	5
+	4
+	3
+	2
+	1
+	0
+	julien@ubuntu:~/monty$ 
+	```
