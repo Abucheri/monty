@@ -19,6 +19,7 @@ opcode_mapping_t opcode_mappings[] = {
 	{"mul", multi},
 	{"mod", mod},
 	{"pchar", pchar},
+	{"pstr", pstr},
 	{NULL, NULL}
 };
 

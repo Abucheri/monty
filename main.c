@@ -49,6 +49,8 @@ instruction_t *initialize_instructions(void)
 	instructions[10].f = mod;
 	instructions[11].opcode = "pchar";
 	instructions[11].f = pchar;
+	instructions[12].opcode = "pstr";
+	instructions[12].f = pstr;
 	return (instructions);
 }
 
