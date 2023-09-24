@@ -54,7 +54,11 @@ instruction_t *initialize_instructions(void)
 	instructions[13].opcode = "rotl";
 	instructions[13].f = rotl;
 	instructions[14].opcode = "rotr";
-	instructions[13].f = rotr;
+	instructions[14].f = rotr;
+	instructions[15].opcode = "queue";
+	instructions[15].f = queue;
+	instructions[16].opcode = "stack";
+	instructions[16].f = stack_op;
 	return (instructions);
 }
 
@@ -87,6 +91,8 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	unsigned int line_number = 0;
 	instruction_t *instructions = initialize_instructions();
+	/* Default mode */
+	int mode = STACK_MODE;
 
 	if (argc != 2)
 	{
@@ -102,7 +108,7 @@ int main(int argc, char *argv[])
 	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
-		process_line(line, line_number, instructions, &stack);
+		process_line(line, line_number, instructions, &stack, &mode);
 	}
 	fclose(file);
 	if (line)

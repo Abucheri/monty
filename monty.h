@@ -3,7 +3,11 @@
 
 #include <stddef.h>
 
-#define NUM_OPCODES 15
+#define NUM_OPCODES 17
+
+/* Constants for stack and queue modes */
+#define STACK_MODE 0
+#define QUEUE_MODE 1
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -59,7 +63,7 @@ extern stack_t *stack;
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void process_line(char *line, unsigned int line_number,
-		instruction_t *instructions, stack_t **stack);
+		instruction_t *instructions, stack_t **stack, int *mode);
 void free_stack(void);
 int is_integer(const char *str);
 void pint(stack_t **stack, unsigned int line_number);
@@ -75,5 +79,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+void stack_op(stack_t **stack, unsigned int line_number);
 
 #endif

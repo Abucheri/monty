@@ -5,9 +5,9 @@
 #include <stdlib.h>
 
 static void process_opcode(char *opcode, unsigned int line_number,
-		instruction_t *instructions, stack_t **stack);
+		instruction_t *instructions, stack_t **stack, int *mode);
 void process_line(char *line, unsigned int line_number,
-		instruction_t *instructions, stack_t **stack);
+		instruction_t *instructions, stack_t **stack, int *mode);
 
 opcode_mapping_t opcode_mappings[] = {
 	{"pop", pop},
@@ -32,16 +32,26 @@ opcode_mapping_t opcode_mappings[] = {
  * @line_number: line number in Monty ByteCode file
  * @stack: pointer to the stack
  * @instructions: array of instruction structures
+ * @mode: pointer to the mode (stack or queue)
  *
  * Return: Nothing
  */
 
 static void process_opcode(char *opcode, unsigned int line_number,
-		instruction_t *instructions, stack_t **stack)
+		instruction_t *instructions, stack_t **stack, int *mode)
 {
 	instruction_t instruction;
 	int i;
 
+	if (strcmp(opcode, "queue") == 0)
+	{
+		*mode = QUEUE_MODE;
+		return;
+	} else if (strcmp(opcode, "stack") == 0)
+	{
+		*mode = STACK_MODE;
+		return;
+	}
 	for (i = 0; i < NUM_OPCODES; i++)
 	{
 		if (strcmp(opcode, instructions[i].opcode) == 0)
@@ -62,12 +72,13 @@ static void process_opcode(char *opcode, unsigned int line_number,
  * @line_number: line no. in the Monty ByteCode file
  * @instructions: array of instruction structures
  * @stack: pointer to the stack
+ * @mode: pointer to the mode (stack or queue)
  *
  * Return: Nothing
  */
 
 void process_line(char *line, unsigned int line_number,
-		instruction_t *instructions, stack_t **stack)
+		instruction_t *instructions, stack_t **stack, int *mode)
 {
 	char *opcode;
 	int i;
@@ -79,10 +90,16 @@ void process_line(char *line, unsigned int line_number,
 	{
 		if (strcmp(opcode, opcode_mappings[i].opcode) == 0)
 		{
-			opcode_mappings[i].func(stack, line_number);
+			if (opcode_mappings[i].func)
+			{
+				opcode_mappings[i].func(stack, line_number);
+			} else
+			{
+				process_opcode(opcode, line_number, instructions, stack, mode);
+			}
 			return;
 		}
 	}
 
-	process_opcode(opcode, line_number, instructions, stack);
+	process_opcode(opcode, line_number, instructions, stack, mode);
 }
