@@ -291,3 +291,66 @@
 		- Usage: `rotr`
 		- The last element of the stack becomes the top element of the stack
 		- `rotr` never fails
+
+15. stack, queue
+	- Implement the `stack` and `queue` opcodes.
+	- ___The stack opcode___
+	- The opcode `stack` sets the format of the data to a stack (LIFO). This is the default behavior of the program.
+		- Usage: `stack`
+	- ___The queue opcode___
+	- The opcode `queue` sets the format of the data to a queue (FIFO).
+		- Usage: `queue`
+	- When switching mode:
+		- The top of the stack becomes the front of the queue
+		- The front of the queue becomes the top of the stack
+	```
+	julien@ubuntu:~/monty$ cat bytecodes/47.m
+	queue
+	push 1
+	push 2
+	push 3
+	pall
+	stack
+	push 4
+	push 5
+	push 6
+	pall
+	add
+	pall
+	queue
+	push 11111
+	add
+	pall
+	julien@ubuntu:~/monty$ ./monty bytecodes/47.m
+	1
+	2
+	3
+	6
+	5
+	4
+	1
+	2
+	3
+	11
+	4
+	1
+	2
+	3
+	15
+	1
+	2
+	3
+	11111
+	julien@ubuntu:~/monty$ 
+	```
+
+16. Brainf*ck
+	- Write a Brainf*ck script that prints `School`, followed by a new line.
+		- All your Brainf*ck files should be stored inside the `bf` sub directory
+		- You can install the `bf` interpreter to test your code: `sudo apt-get install bf`
+		- Read: [Brainf*ck](https://en.wikipedia.org/wiki/Brainfuck)
+	```
+	julien@ubuntu:~/monty/bf$ bf 1000-school.bf 
+	School
+	julien@ubuntu:~/monty/bf$ 
+	```
